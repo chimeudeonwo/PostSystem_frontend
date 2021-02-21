@@ -37,11 +37,43 @@ function deleteImg() {
          });*/
     });
 }
-const button = document.getElementById('btn'); //! means ignore the error, the button will exist
-button.addEventListener("click", () => __awaiter(void 0, void 0, void 0, function* () {
+function deleteFromLocalStorage(img, id) {
+    let urlImg = localStorage.getItem(id);
+    if (urlImg) {
+        img.src = "";
+        localStorage.removeItem(id);
+        console.log("src from Localstorage is deleted");
+    }
+    else
+        console.log("no such item is stored in Localstorage");
+}
+let delFromEspBtn = document.getElementById("delEsp"); //! means ignore the error, the button will exist
+delFromEspBtn.addEventListener("click", () => __awaiter(void 0, void 0, void 0, function* () {
     yield deleteImg();
-    console.log('All pictures are deleted');
+    console.log('ESP emptied');
+}));
+let delFromStoreBtn = document.getElementById("delStore"); //! means ignore the error, the button will exist
+let imgToBeDeleted = document.getElementById("istImg_id");
+delFromStoreBtn.addEventListener("click", () => __awaiter(void 0, void 0, void 0, function* () {
+    deleteFromLocalStorage(imgToBeDeleted, "srcUrl");
+    deleteFromLocalStorage(imgToBeDeleted, "srcUrl2");
+    console.log('Store emptied');
 }));
 function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
+/*
+let parentClass = document.getElementsByClassName("sideBarButtons")!
+for(let i = 0; i < parentClass.length; i++){
+  if(parentClass){
+    button.style.padding = "10px"
+    button.style.float = "left"
+    //button.style.width = "100%"
+    button.style.fontSize = "20px"
+    button.style.textAlign = "center"
+
+    parentClass[i].appendChild(button)
+    console.log("sideColumnMenu child: deleteBtn created")
+  }
+}
+*/

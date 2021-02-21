@@ -176,7 +176,7 @@ $(function(){
 
     $window.scroll(function() {
         scrollPercent = Math.round(100 * ($window.height() + $window.scrollTop())/$document.height());
-        if (scrollPercent > 90 && !isDuplicateScrollEvent) { //page scrolled to 90%
+        if (scrollPercent > 90 && !isDuplicateScrollEvent) { //page scrolled to 90px
             isDuplicateScrollEvent = 1;
             ga('send', 'event', 'scroll',
                 'Window: ' + $window.height() + 'px; Document: ' + $document.height() + 'px; Time: ' + Math.round((new Date - scrollTimeStart )/1000,1) + 's'
@@ -194,7 +194,7 @@ Enabling your application for pinning will allow IE users to add it to their
 Windows Taskbar and Start Menu. This comes with a range of new tools that you
 can easily configure with the elements below. See more [documentation on IE
 Pinned
-Sites](https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/samples/gg491731(v%3dvs.85)).
+Sites](https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/samples/gg491731(vpx3dvs.85)).
 
 ### Name the Pinned Site for Windows
 

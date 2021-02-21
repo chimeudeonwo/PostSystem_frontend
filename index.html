@@ -18,35 +18,94 @@
 
   <link rel="stylesheet" href="src/css/normalize.css">
   <link rel="stylesheet" href="src/css/main.css">
+  <link rel="stylesheet" href="src/css/project.css">
 
   <meta name="theme-color" content="#fafafa">
+
 </head>
 
 <body>
-
-  <!-- Add your site or application content here -->
-  <p id="demo">Post Box Notify System.</p>
-  <!--
-    <div>
-      <button id="captureBtn">CapturePixFromEsp</button>
+<!-- Header Starts From Here -->
+  <div class="headerContainer">
+    <p class="p_title">Post Box Notification System</p>
+    <div class="headerMenu">
+      <img id="menuIcon" src="src/img/menu_icon.png" width="60px" height="50px">
+      <div class="login">
+      </div>
     </div>
-    <div>
-      <img src="" id="savedImg" />
+    <div id="menu">Menu</div>
+  </div>
+
+<!-- Header Ends Here -->
+
+
+<!-- Body Starts From Here -->
+  <div class="bodyContainer">
+    <div class="sideColumnMenu">
+      <p class="textFormat">Toggle Auto Mode</p>
+      <div class="checkedToggle">
+        <!-- Rectangular switch
+              <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+              </label> -->
+
+        <!-- Rounded switch -->
+        <label class="switch" >
+          <input id="checked-Id" type="checkbox">
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <div class="sideBarButtons">
+        <button id="takeImg">TakePhoto</button>
+        <button id="getImgEsp">GetPhotoFromEsp</button>
+        <button id="getImgStore">GetPhotoFromStore</button>
+        <button id="delStore">DeletePhotoFromStore</button>
+        <button id="delEsp">DeleteAllPhotoInEsp</button>
+      </div>
+
     </div>
 
-    <div>
-      <img src="" id="capturedImg" />
-    </div> -->
+    <div class="contentBox">
+        <div class="imgBox">
+          <img id="istImg_id" src="" alt="First Image">
+          <button>delete</button>
+        </div>
+        <div class="imgBox" >
+          <img src="" id="2ndImg_id" alt="Second Image">
+          <button>delete</button>
+        </div>
+        <div class="imgBox">
+          <img src="" id="3rdImg_id" alt="Third Image">
+          <button>delete</button>
+        </div>
+    </div>
 
-  <button id="btn">DeleteAllPhotoInEsp</button>
+  </div>
+
+<!-- Body Ends Here -->
+
+
+<!-- Footer Starts From Here -->
+  <div class="footerContainer">
+    <!-- call 'toggleState' whenever clicked -->
+    <div>
+
+    </div>
+  </div>
+
+<!-- Footer Ends Here -->
+
+
   <script src="src/js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="src/js/plugins.js"></script>
 
   <script src="src/js/fromTs/app.js" defer></script>
  <!-- <script type="module" src="src/js/fromTs/deletePhotoFromEsp.js" defer></script> -->
-  <script src="src/js/fromTs/deletePhotoFromEsp.js" defer></script>
-  <script src="src/js/fromTs/getCapturedPhotoFromEsp.js" defer></script>
   <script src="src/js/fromTs/captureImage.js" defer></script>
+  <script src="src/js/fromTs/getCapturedPhotoFromEsp.js" defer></script>
+  <script src="src/js/fromTs/deletePhotoFromEsp.js" defer></script>
+  <script src="src/js/fromTs/saveImgToFile.js" defer></script>
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   <script>

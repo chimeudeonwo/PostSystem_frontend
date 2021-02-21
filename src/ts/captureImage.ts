@@ -1,32 +1,58 @@
 
+
 //Fetches image from esp and saves as an img.src in the index.html
+import get = Reflect.get;
+
 async function captureImg() {
   //delete any photo in ESp and take a new one
 
   let response = await fetch('http://192.168.2.124/capture');
   if (response.status === 200) {
     //refresh/reload the page and the call getCapturedPixFromEsp()
-      alert("Capture Success!")
+    console.log("Capture Success!")
   }
-  else alert("Capture Failed!")
+  else console.log("Capture Failed!")
 }
 
-/*Creates an img tag based on if the id is savedImg or imgFromEsp*/
-async function createBtn(btnName: string, id: string){
+let takePhotoBtn = document.getElementById("takeImg")!
+takePhotoBtn.addEventListener("click", async () => {
+  await captureImg()
+    .then(r => console.log('photo taking completed'));
+})
+
+/*Creates an img tag based on if the id is savedImg or imgFromEsp
+function createBtn(btnName: string, id: string) {
   let newBtn = document.createElement("button")
+  let sideBar = document.getElementsByClassName("sideColumnMenu")
   newBtn.id = id;
   newBtn.innerHTML = btnName;
-  document.body.append(newBtn)
+  //return document.body.append(newBtn) //append it to sideColumnMenu
+  return newBtn
 }
 
-createBtn("CapturePixFromESP", "captureBtn").then(r => console.log("capture btn created"))
+let newChild = createBtn("TakePicture", "captureBtn")
 
-/*Creates an img tag based on if the id is savedImg or imgFromEsp*/
-  let capBtn = document.getElementById("captureBtn")!
-  capBtn.addEventListener("click", async () => {
-    await captureImg()
-      .then(r => alert('capture completed'));
-  })
+let div = document.createElement("div")
+div.className = "newDiv"
+let parentN = document.getElementsByClassName("sideBarButtons")!
+parentN[0].appendChild(div)
+for(let i = 0; i < parentN.length; i++){
+  if(parentN){
+    newChild.style.padding = "10px"
+    newChild.style.float = "left"
+    //newChild.style.width = "100%"
+    newChild.style.fontSize = "20px"
+    newChild.style.textAlign = "center"
+    //parentN[i].append(newChild)
+
+    let childNode = document.getElementsByClassName("newDiv")!
+    childNode[i].appendChild(newChild)
+    console.log("sideColumnMenu child: captureBtn created, i = ", i)
+  }
+}*/
+
+
+
 
 /*let data = await response.blob();
     // handle data:  convert img to string using Base64, then save to localstorage and set as src. TODO: save to path,

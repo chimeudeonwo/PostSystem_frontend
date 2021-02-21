@@ -18,45 +18,79 @@ function fetchCapturedPixFromEsp() {
             // handle data:  convert img to string using Base64, then save to localstorage and set as src. TODO: save to path,
             let reader = new FileReader();
             yield reader.readAsDataURL(data);
-            let newImgUrlFromBase64data;
             reader.onloadend = function () {
                 return __awaiter(this, void 0, void 0, function* () {
                     let base64data = reader.result; //returns file as encoded string
-                    newImgUrlFromBase64data = String(base64data); //dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-                    yield createImageTag("imgFromEsp", newImgUrlFromBase64data);
-                    console.log("imageTag created to display image from ESP");
+                    let newImgUrlFromBase64data = String(base64data); //dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+                    let srcItem = localStorage.getItem("srcUrl");
+                    if (!srcItem) {
+                        localStorage.setItem("srcUrl", newImgUrlFromBase64data);
+                    }
+                    else
+                        localStorage.setItem("srcUrl2", newImgUrlFromBase64data);
+                    //await createImageTag("imgFromEsp", newImgUrlFromBase64data)
                 });
             };
+            let istImg = document.getElementById("istImg_id");
+            if (localStorage.getItem("srcUrl") && localStorage.getItem("srcUrl2")) {
+                istImg.src = localStorage.getItem("srcUrl2");
+            }
+            else
+                istImg.src = localStorage.getItem("srcUrl");
+            istImg.style.width = "100%";
+            istImg.style.height = "100%";
+            //istImg.src =  <string>localStorage.getItem("srcUrl")
+            console.log("imageTag created to display image from ESP");
+            istImg.style.transform = "rotate(" + 90 + "deg)";
+            /*istImg.style.width = "100%"
+            istImg.style.height = "100%"
+            istImg.style.objectFit = "contain"
+            istImg.style.transform = "rotate(" + 90 + "deg)"
+            if(localStorage.getItem("srcUrl") && localStorage.getItem("srcUrl2"))
+              istImg.src =  <string>localStorage.getItem("srcUrl2")
+            else istImg.src =  <string>localStorage.getItem("srcUrl")*/
         }
-        /*  //Check if the picture is already in localstorage and get it otherwise get from ESP alert("capture returned no image")
-          let newImgSrcFromStore = localStorage.getItem("imgRcvdi")!
-          if(newImgSrcFromStore !== null && newImgSrcFromStore !== "data:"){
-            await createImageTag("savedImg", newImgSrcFromStore)
-            console.log("image is from Local Storage")
-            return;
-          }
-      
-          let reader = new FileReader();
-          await reader.readAsDataURL(data);
-      
-          reader.onloadend = async function() {
-            let base64data = reader.result; //returns file as encoded string
-            let newImgUrlFromBase64data =   String(base64data)//dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-            localStorage.setItem("imgRcvd", newImgUrlFromBase64data);//String.replace(/^data:image\/(png|jpg);base64,/, "rcvd")
-         } */
-        /*if (response.status === 200) {
-          await createImageTag("imgId", "src/img/fetched/icon.jpg")
-        }*/
-        /*  //get img from localstorage and save to dir and pass the path as src
-        let newImgSrc = localStorage.getItem("imgRcvd")!
-        if(newImgSrc === null || newImgSrc == "data:"){
-          console.log("No saved pix in ESP")
-        }
-        else {
-          await createImageTag("imgFromEsp", newImgSrc)
-          console.log("imageTag created to display image from ESP")}
-      }*/
     });
+}
+function fetchCapturedPixFromLocalStorage(img, id) {
+    img.style.objectFit = "contain";
+    img.style.width = "84%";
+    img.style.height = "auto";
+    img.src = localStorage.getItem(id);
+    console.log("src from Localstorage is set");
+}
+let nBtn = document.getElementById("getImgEsp");
+nBtn.addEventListener("click", () => __awaiter(void 0, void 0, void 0, function* () {
+    yield fetchCapturedPixFromEsp()
+        .then(r => console.log("image from dsp is gotten"));
+}));
+let storeBtn = document.getElementById("getImgStore");
+let imgToBeUpdated = document.getElementById("2ndImg_id");
+let imgId = "srcUrl";
+storeBtn.addEventListener("click", () => __awaiter(void 0, void 0, void 0, function* () {
+    if (!(imgToBeUpdated.src == localStorage.getItem(imgId))) {
+        console.log("2ndImg_id no such Id exists in the doc");
+        fetchCapturedPixFromLocalStorage(imgToBeUpdated, imgId);
+    }
+    else {
+        imgId = "srcUrl2";
+        imgToBeUpdated = document.getElementById("3rdImg_id");
+        fetchCapturedPixFromLocalStorage(imgToBeUpdated, imgId);
+        console.log("3rdImg_id no such Id exists in the doc");
+    }
+}));
+let newHeight;
+let newWidth;
+function resizeImg(img, maxWidth, maxHeight) {
+    if (img.width > img.height) {
+        newHeight = img.height * (maxWidth / img.width);
+        newWidth = maxWidth;
+    }
+    else {
+        newWidth = img.width * (maxHeight / img.height);
+        newHeight = maxHeight;
+    }
+    return img;
 }
 /*
 fetchPixFromEsp().then(r => {

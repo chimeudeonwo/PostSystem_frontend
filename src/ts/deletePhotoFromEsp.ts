@@ -27,13 +27,47 @@
     });*/
 }
 
-const button = document.getElementById('btn')!  //! means ignore the error, the button will exist
+ function deleteFromLocalStorage(img: HTMLImageElement, id: string) {
+   let urlImg = <string>localStorage.getItem(id)
+   if(urlImg){
+     img.src = ""
+     localStorage.removeItem(id)
+     console.log("src from Localstorage is deleted")
+   }
+   else console.log("no such item is stored in Localstorage")
+ }
 
-button.addEventListener("click", async () => {
-  await deleteImg();
-  console.log('All pictures are deleted')
-})
+let delFromEspBtn = document.getElementById("delEsp")!  //! means ignore the error, the button will exist
+ delFromEspBtn.addEventListener("click", async () => {
+   await deleteImg();
+   console.log('ESP emptied')
+ })
+
+ let delFromStoreBtn = document.getElementById("delStore")!  //! means ignore the error, the button will exist
+ let imgToBeDeleted = document.getElementById("istImg_id") as HTMLImageElement
+
+ delFromStoreBtn.addEventListener("click", async () => {
+   deleteFromLocalStorage(imgToBeDeleted, "srcUrl")
+   deleteFromLocalStorage(imgToBeDeleted, "srcUrl2")
+   console.log('Store emptied')
+ })
 
  function delay(ms: number) {
    return new Promise( resolve => setTimeout(resolve, ms) );
  }
+
+ /*
+ let parentClass = document.getElementsByClassName("sideBarButtons")!
+ for(let i = 0; i < parentClass.length; i++){
+   if(parentClass){
+     button.style.padding = "10px"
+     button.style.float = "left"
+     //button.style.width = "100%"
+     button.style.fontSize = "20px"
+     button.style.textAlign = "center"
+
+     parentClass[i].appendChild(button)
+     console.log("sideColumnMenu child: deleteBtn created")
+   }
+ }
+*/
