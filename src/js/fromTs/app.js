@@ -36,13 +36,13 @@ checked.addEventListener("click", () => __awaiter(void 0, void 0, void 0, functi
         checked = document.getElementById("checked-Id");
     }
     if (TURN_ESP_ON > 0) {
-        console.log("ESP: Auto Mode activating.");
-        yield deleteImg();
+        /*console.log("ESP: Auto Mode activating.")
+        //await deleteImg()
         //await delay(3000)
-        console.log("ESP: Auto Mode activating..");
-        yield captureImg();
+        console.log("ESP: Auto Mode activating..")
+        await captureImg()
         //await delay(3000)
-        console.log("ESP: Auto Mode activating...");
+        console.log("ESP: Auto Mode activating...")*/
         yield fetchCapturedPixFromEsp();
         //await delay(3000)
         console.log("ESP: Auto Mode activated!");

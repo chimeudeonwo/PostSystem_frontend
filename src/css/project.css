@@ -1,0 +1,216 @@
+
+/*Remove all padding and margins, e.g.Remove space btwn top and header container*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+div {
+  display: block;
+}
+
+.headerContainer{
+  position: static;
+  top: 0px;
+  width: 100%;
+  height: 150px;
+  background-color: #eeb767;
+}
+.p_title{
+  font-size: 20px;
+  font-family: "Arial";
+  width: 50%;
+  height: 15px;
+  color: green;
+  font-weight: 900;
+}
+#menuIcon{
+  position: relative;
+  top: 10px;
+  left: 1350px;
+  background-color: #8b0000; /*remove later*/
+}
+#menu{
+  position: relative;
+  bottom: -6px;
+  left:1350px;
+  font-size: 20px;
+  font-family: Arial;
+  color: white;
+}
+
+
+input[type=checkbox] + label {
+  color: #ccc;
+  font-style: italic;
+}
+input[type=checkbox]:checked + label {
+  color: #f00;
+  font-style: normal;
+}
+.bodyContainer{
+  position: relative;
+  top: 0px;
+  display: block;
+  border: red solid 1px;
+  width: 100%;
+  max-height: 600px;
+}
+.notHome{
+  /*display: none*/;
+}
+.sideColumnMenu{
+  position: relative;
+  top: 0px;
+  width: 16%;
+  left: 0px;
+  height: 600px;
+  background-color: #473547;
+}
+.textFormat{
+  font-size: 20px;
+  font-family: Arial;
+  color: white;
+}
+.sideBarButtons{
+  position: relative;
+  top: 15px;
+  border: aqua solid 1px;
+  height: 500px;
+  color: white;
+}
+.sideBarButtons button{
+  font-size: 20px;
+  float: left;
+  text-align: center;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: yellow;/*#555555;*/
+  color: #473547;
+  font-weight: 900;
+}
+.sideBarButtons :hover{
+  background-color: orange;
+  color: green;
+}
+
+/*Where all the contents will be displayed, text, img, etc.*/
+.contentBox{
+  display: block;
+  position: relative;
+  top: -600px;
+  left: 242px;
+  width: 84%;
+  border: blue dotted 1px;
+  height: 600px;
+  font-size: 20px;
+}
+
+/*Format image box where the img from ESp will be set into*/
+.imgBox{
+  display: inline-block;
+  flex-direction: row;
+  width: 33%;
+  height: 330px;
+  border: gray solid 2px;
+
+}
+.imgBox button{
+  position: relative;
+  bottom: -327px;
+  left: 200px;
+  width: 20%;
+  border-radius: 6px;
+  font-size: 20px;
+}
+.imgBox img{
+  width: 30%;
+  height: 325px;
+}
+
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50px;
+}
+
+
+/*
+.class .class img{
+  border: 10px solid green;
+}
+
+#id .class img{
+  border: 10px solid blue;
+}
+*/
+
+.footerContainer{
+  display: block;
+  border: #2196F3 solid 1px;
+  position: relative;
+  bottom: 0px;
+  height: 220px;
+}

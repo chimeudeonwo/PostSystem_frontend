@@ -8,7 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-//Fetches image from esp and saves as an img.src in the index.html
+//Fetches image from esp and saves as an img.src in the homePage.html
 var get = Reflect.get;
 function captureImg() {
     return __awaiter(this, void 0, void 0, function* () {

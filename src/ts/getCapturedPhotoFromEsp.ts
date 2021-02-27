@@ -1,5 +1,5 @@
 
-// Fetches image from esp and saves as an img.src in the index.html
+// Fetches image from esp and saves as an img.src in the homePage.html
 async function fetchCapturedPixFromEsp() {
    //let prom =await fetch('http://192.168.2.124/capture')
 

@@ -1,6 +1,6 @@
 
 
-//Fetches image from esp and saves as an img.src in the index.html
+//Fetches image from esp and saves as an img.src in the homePage.html
 import get = Reflect.get;
 
 async function captureImg() {

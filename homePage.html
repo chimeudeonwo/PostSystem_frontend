@@ -1,0 +1,126 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="src/css/normalize.css">
+  <link rel="stylesheet" href="src/css/main.css">
+  <link rel="stylesheet" href="src/css/project.css">
+
+  <meta name="theme-color" content="#fafafa">
+
+</head>
+
+<body>
+<!-- Header Starts From Here -->
+  <div class="headerContainer">
+    <p class="p_title">Post Box Notification System</p>
+    <div class="headerMenu">
+      <img id="menuIcon" src="src/img/menu_icon.png" width="60px" height="50px">
+      <div class="login">
+      </div>
+    </div>
+    <div id="menu">Menu</div>
+  </div>
+
+<!-- Header Ends Here -->
+
+
+<!-- Body Starts From Here -->
+  <div class="bodyContainer">
+    <!-- Start of notHome-->
+    <div class="notHome" id="otherPages">
+
+      <div class="sideColumnMenu">
+        <p class="textFormat">Toggle Auto Mode</p>
+        <div class="checkedToggle">
+          <!-- Rectangular switch
+                <label class="switch">
+                  <input type="checkbox">
+                  <span class="slider"></span>
+                </label> -->
+
+          <!-- Rounded switch -->
+          <label class="switch" >
+            <input id="checked-Id" type="checkbox">
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <div class="sideBarButtons">
+          <button id="takeImg">TakePhoto</button>
+          <button id="getImgEsp">GetPhotoFromEsp</button>
+          <button id="getImgStore">GetPhotoFromStore</button>
+          <button id="delStore">DeletePhotoFromStore</button>
+          <button id="delEsp">DeleteAllPhotoInEsp</button>
+        </div>
+
+      </div>
+
+      <div class="contentBox">
+        <div class="imgBox">
+          <img id="istImg_id" src="" alt="First Image">
+          <button>delete</button>
+        </div>
+        <div class="imgBox" >
+          <img src="" id="2ndImg_id" alt="Second Image">
+          <button>delete</button>
+        </div>
+        <div class="imgBox">
+          <img src="" id="3rdImg_id" alt="Third Image">
+          <button>delete</button>
+        </div>
+      </div>
+
+    </div>
+    <!-- End of notHome-->
+
+  </div>
+
+<!-- Body Ends Here -->
+
+
+<!-- Footer Starts From Here -->
+  <div class="footerContainer">
+    <!-- call 'toggleState' whenever clicked -->
+    <div>
+
+    </div>
+  </div>
+
+<!-- Footer Ends Here -->
+
+
+  <script src="src/js/vendor/modernizr-3.11.2.min.js"></script>
+  <script src="src/js/plugins.js"></script>
+
+  <script src="src/js/fromTs/app.js" defer></script>
+ <!-- <script type="module" src="src/js/fromTs/deletePhotoFromEsp.js" defer></script> -->
+  <script src="src/js/fromTs/captureImage.js" defer></script>
+  <script src="src/js/fromTs/getCapturedPhotoFromEsp.js" defer></script>
+  <script src="src/js/fromTs/deletePhotoFromEsp.js" defer></script>
+  <script src="src/js/fromTs/saveImgToFile.js" defer></script>
+  <script src="src/js/fromTs/displayControl.js" defer></script>
+
+
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script>
+</body>
+
+</html>
